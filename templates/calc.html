@@ -1,0 +1,469 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    
+    <title>술친구</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+<body>
+<div class="container">
+<div class="page-header">    
+
+    <h1 class="display-5">
+        <a href="http://술친구.온라인.한국">술친구.온라인.한국</a>
+        <span class="pull-right">
+            <a href="/brew" class="btn btn-default" role="button">
+                <div class="hidden-xs" align="center">
+                    레시피 만들기
+                </div>
+                <div class="visible-xs " align="center">
+                    ㄹㅁ
+                </div>
+            </a> 
+        </span>
+    </h1>
+    </div>
+    
+</div>
+
+<div class="container">
+
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                        <h3 class="panel-title">유용한 계산기</h3>
+                      </div>
+            <div class="panel-body">
+
+                    <div class="panel-group" id="accordion">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                    1. 술에 물을 넣어서 알콜 도수를 낮출 때</a>
+                                </h4>
+                              </div>
+                              <div id="collapse1" class="panel-collapse collapse in">
+                                <div class="panel-body">
+            
+                            <div class="row">        
+                                    <div class="col-lg-4">
+                                        <label>현재 도수(% ABV) : </label>
+                                        <div class="form-group">
+                                            <input id="id_1_1" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label>원하는 도수(% ABV) : </label>
+                                        <div class="form-group">
+                                        <input id="id_1_2" type="number" class="form-control"></div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <label>술의 양(L) : </label>
+                                        <div class="form-group">
+                                        <input id="id_1_3" type="number" class="form-control"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="btn-group btn-block">
+                                        <button class="btn btn-default btn-lg btn-block" onclick=fun_1()>계산</button>
+                                    </div></div>
+                                    <div class="col-lg-6">
+                                            <div class="panel-borderless">
+                                    <div class="panel-body">
+                                        물의 양(L) : <span id="an_1"></span>
+                                    </div></div>
+                                    </div>
+                                </div>
+            
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                                    2. 두가지 술을 혼합할 때</a>
+                                </h4>
+                              </div>
+                              <div id="collapse2" class="panel-collapse collapse">
+                                <div class="panel-body">
+                        
+                            <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>술A의 도수(% ABV) : </label>
+                                        <div class="form-group">
+                                        <input id="id_2_1" type="number" class="form-control"></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>술B의 도수(% ABV) : </label>
+                                        <div class="form-group">
+                                        <input id="id_2_3" type="number" class="form-control"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>원하는 도수(% ABV) : </label>
+                                        <div class="form-group">
+                                        <input id="id_2_2" type="number" class="form-control"></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>전체 술의 양(L) : </label>
+                                        <div class="form-group">
+                                        <input id="id_2_4" type="number" class="form-control"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                        <div class="col-lg-12">
+                                        <div class="btn-group btn-block">
+                                            <button class="btn btn-default btn-lg btn-block" onclick=fun_2()>계산</button>
+                                    </div></div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="panel-borderless">
+                                        <div class="panel-body">
+                                            술A의 양(L) : <span id="an_2_1"></span>
+                                        </div></div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="panel-borderless">
+                                        <div class="panel-body">
+                                            술B의 양(L) : <span id="an_2_2"></span>
+                                        </div></div>
+                                    </div>
+                                </div>
+            
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                                    3. 과실주 만들 때 당도를 높여야 할 때</a>
+                                </h4>
+                              </div>
+                              <div id="collapse3" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    
+                                <div class="row">
+                                        <div class="col-lg-6">
+                                        <label>현재 당도(Brix) : </label>
+                                        <div class="form-group">
+                                        <input id="id_3_1" type="number" class="form-control"></div></div>
+                                        <div class="col-lg-6">
+                                        <label>원하는 당도(Brix) : </label>
+                                        <div class="form-group">
+                                        <input id="id_3_2" type="number" class="form-control"></div></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                        <label>과실의 양(L) : </label>
+                                        <div class="form-group">
+                                        <input id="id_3_3" type="number" class="form-control"></div></div>
+                                        <div class="col-lg-6">
+                                        <label>과실의 수분 함량 : </label>
+                                        <div class="form-group">
+                                        <input id="id_3_4" type="number" class="form-control"></div>
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                        <div class="col-lg-6" >
+                                            <div class="btn-group btn-block">
+                                            <button class="btn btn-default btn-lg btn-block" onclick=fun_3()>계산</button>
+                                        </div></div>
+                                        <div class="col-lg-6" >
+                                        <div class="panel-borderless">    
+                                        <div class="panel-body">
+                                                설탕량(kg) : <span id="an_3"></span>
+                                            </div></div>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                </div>
+                              </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                                    4. 당도가 높은 청에 물을 넣을 때</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse4" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                    <div class="row">
+                                            <div class="col-lg-4">
+                                            <label>현재 당도(Brix) : </label>
+                                            <div class="form-group">    
+                                            <input id="id_4_1" type="number" class="form-control"></div>
+                                            </div>
+                                            <div class="col-lg-4">
+                                            <label>원하는 당도(Brix) : </label>
+                                            <div class="form-group">    
+                                            <input id="id_4_2" type="number" class="form-control"></div>
+                                            </div>
+                                            <div class="col-lg-4" >
+                                            <label>중량(L) : </label>
+                                            <div class="form-group">    
+                                            <input id="id_4_3" type="number" class="form-control"></div>
+                                            </div></div>
+                                        <div class="row">
+                                            <div class="col-lg-6" >
+                                                <div class="btn-group btn-block">
+                                                <button class="btn btn-default btn-lg btn-block" onclick=fun_4()>계산</button>
+                                            </div></div>
+                                            <div class="col-lg-6" >
+                                                <div class="panel-borderless">
+                                                <div class="panel-body">
+                                                물의 양(L) : <span id="an_4"></span>
+                                                </div></div>
+                                            </div>
+                                        </div>
+            
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                                    5. 두가지 이상의 술을 섞을 때</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse5" class="panel-collapse collapse">
+                                    <div class="panel-body">
+            
+                                    <div class="row">
+                                            <div class="col-lg-6">
+                                                <label>A양(L)</label>
+                                                <div class="form-group">
+                                                <input id="id_5_A1" type="number" class="form-control"></div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label>A알콜 도수(% ABV)</label>
+                                                <div class="form-group">
+                                                <input id="id_5_A2" type="number" class="form-control"></div>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-lg-6">
+                                                <label>B양(L)</label>
+                                                <div class="form-group">
+                                                <input id="id_5_B1" type="number" class="form-control"></div>
+                                            </div>
+                                                <div class="col-lg-6">
+                                                <label>B알콜 도수(% ABV)</label>
+                                                <div class="form-group">
+                                                <input id="id_5_B2" type="number" class="form-control"></div>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-lg-6">
+                                                <label>C양(L)</label>
+                                                <div class="form-group">
+                                                <input id="id_5_C1" type="number" class="form-control"></div>
+                                            </div>
+                                                <div class="col-lg-6">
+                                                <label>C알콜 도수(% ABV)</label>
+                                                <div class="form-group">
+                                                <input id="id_5_C2" type="number" class="form-control"></div>
+                                            </div>
+                                        </div>
+                                    <div class="row">
+                                            <div class="col-lg-6">
+                                                <label>D양(L)</label>
+                                                <div class="form-group">
+                                                <input id="id_5_D1" type="number" class="form-control"></div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <label>D알콜 도수(% ABV)</label>
+                                                <div class="form-group">
+                                                <input id="id_5_D2" type="number" class="form-control"></div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12" >
+                                                <div class="btn-group btn-block">
+                                                <button class="btn btn-default btn-lg btn-block" onclick=fun_5()>계산</button>
+                                            </div></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="panel-borderless">
+                                                <div class="panel-body">
+                                                    전체 술의 양(L) : 
+                                                    <span id="an_5_1"></span>
+                                                </div></div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="panel-borderless">
+                                                <div class="panel-body">
+                                                    알콜 도수(% ABV) : 
+                                                    <span id="an_5_2"></span>
+                                                </div></div>
+                                            </div>
+                                        </div>
+            
+                                    </div>
+                                </div>
+                            </div>    
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                                      6. 증류 계수 계산</a>
+                                  </h4>
+                                </div>
+                                <div id="collapse6" class="panel-collapse collapse">
+                                  <div class="panel-body">
+                                      
+                                  <div class="row">
+                                          <div class="col-lg-6">
+                                          <label>증류할 원주 도수(% ABV) : </label>
+                                          <div class="form-group">
+                                          <input id="id_6_1" type="number" class="form-control"></div></div>
+                                          <div class="col-lg-6">
+                                          <label>증류할 원주 양(L) : </label>
+                                          <div class="form-group">
+                                          <input id="id_6_2" type="number" class="form-control"></div></div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="col-lg-6">
+                                          <label>증류한 증류주 도수(% ABV) : </label>
+                                          <div class="form-group">
+                                          <input id="id_6_3" type="number" class="form-control"></div></div>
+                                          <div class="col-lg-6">
+                                          <label>증류한 증류주 양(L) : </label>
+                                          <div class="form-group">
+                                          <input id="id_6_4" type="number" class="form-control"></div>
+                                      </div>
+                                  </div>
+                                      <div class="row">
+                                          <div class="col-lg-6" >
+                                              <div class="btn-group btn-block">
+                                              <button class="btn btn-default btn-lg btn-block" onclick=fun_6()>계산</button>
+                                          </div></div>
+                                          <div class="col-lg-6" >
+                                          <div class="panel-borderless">    
+                                          <div class="panel-body">
+                                                  증류 계수(%) : <span id="an_6"></span>
+                                              </div></div>
+                                          </div>
+                                      </div>
+                                  </div>
+              
+                                  </div>
+                                </div>
+            </div>
+
+            </div>
+            </div>
+        </div>
+
+        <!-- <div class="col-sm-6">
+        <div class="panel panel-default">
+        <div class="panel-heading">
+                <h3 class="panel-title">유용한 레시피</h3>
+                </div>
+            <div class="panel-body">
+                -준비중입니다-
+            </div>
+            </div>
+    </div> -->
+
+
+</div>
+
+<script>
+function fun_1(){
+var x1=document.getElementById("id_1_1").value;
+var x2=document.getElementById("id_1_2").value;
+var x3=document.getElementById("id_1_3").value;
+
+var ans=(x1-x2)/x2*x3
+document.getElementById("an_1").innerHTML=ans.toFixed(1);
+}
+
+function fun_2(){
+var x1=document.getElementById("id_2_1").value;
+var x2=document.getElementById("id_2_2").value;
+var x3=document.getElementById("id_2_3").value;
+var x4=document.getElementById("id_2_4").value;
+
+var ans1=(x2-x3)/(x1-x3)*x4
+var ans2=(x1-x2)/(x1-x3)*x4
+
+document.getElementById("an_2_1").innerHTML=ans1.toFixed(1);
+document.getElementById("an_2_2").innerHTML=ans2.toFixed(1);
+}
+
+function fun_3(){
+var x1=document.getElementById("id_3_1").value;
+var x2=document.getElementById("id_3_2").value;
+var x3=document.getElementById("id_3_3").value;
+var x4=document.getElementById("id_3_4").value;
+
+var ans=(x2-x1)/(100-x2)*x3*x4
+document.getElementById("an_3").innerHTML=ans.toFixed(1);
+}
+
+function fun_4(){
+var x1=document.getElementById("id_4_1").value;
+var x2=document.getElementById("id_4_2").value;
+var x3=document.getElementById("id_4_3").value;
+
+var ans=(x1-x2)/x2*x3
+document.getElementById("an_4").innerHTML=ans.toFixed(1);
+}
+
+function fun_5(){
+var x11=document.getElementById("id_5_A1").value;
+var x12=document.getElementById("id_5_A2").value;
+var x21=document.getElementById("id_5_B1").value;
+var x22=document.getElementById("id_5_B2").value;
+var x31=document.getElementById("id_5_C1").value;
+var x32=document.getElementById("id_5_C2").value;
+var x41=document.getElementById("id_5_D1").value;
+var x42=document.getElementById("id_5_D2").value;
+
+var ans1=x11*1+x21*1+x31*1+x41*1
+var ans2=((x11*x12)+(x21*x22)+(x31*x32)+(x41*x42))/(x11*1+x21*1+x31*1+x41*1)
+
+document.getElementById("an_5_1").innerHTML=ans1.toFixed(1);
+document.getElementById("an_5_2").innerHTML=ans2.toFixed(1);
+}
+
+function fun_6(){
+var x1=document.getElementById("id_6_1").value;
+var x2=document.getElementById("id_6_2").value;
+var x3=document.getElementById("id_6_3").value;
+var x4=document.getElementById("id_6_4").value;
+
+var ans=((x3*x4)/(x1*x2))*100
+
+document.getElementById("an_6").innerHTML=ans.toFixed(1);
+}
+
+
+</script>
+
+</body>
+<footer class="bg-light text-center text-lg-start">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0);">
+      만든사람 : 
+      <!-- <a href="mailto:dlsxo1518@gmail.com" title="dlsxo1518@gmail.com로 메일 보내기">dlsxo1518@gmail.com</a> -->
+      <a href="https://www.instagram.com/i.t.cho/" class="text-decoration-none">
+        @i.t.cho
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+      <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+      </svg>
+      </a>
+    </div>
+  </footer>
+</html>
