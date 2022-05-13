@@ -49,7 +49,7 @@ def result():
         current_stage_level = 0
         total_stage = []
         staged_recipe = []
-        current_stage = ''
+        current_stage = []
         for key, value in data.items():            
             if value != '':
                 materials, stage = key.split('#')
@@ -65,6 +65,10 @@ def result():
                     current_stage = []
 
                 current_stage.append({materials:value})
+            else:
+                value = 0
+                materials, stage = key.split('#')
+                current_stage.append({materials:value})                                     
 
         staged_recipe.append(current_stage)
 

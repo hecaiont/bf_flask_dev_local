@@ -54,22 +54,45 @@
     </div> -->
 
 
-
     </div>
     <div>
-      
-      {% for item in result %}
-        {% if loop.index0 == 0 %}
-          밑술
-        {% else %}
-          덧술  
-        {% endif %}
+      {% if result != [''] %}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">쌀</th>
+              <th scope="col">물</th>
+              <th scope="col">누룩</th>
+              <th scope="col">밀가루</th>
+              <th scope="col">부재료</th>
+              <th scope="col">기간</th>
+            </tr>
+          </thead>
+          <tbody>
+        {% for item in result %}
+        <tr>
+          {% if loop.index0 == 0 %}
+          <th scope="row">밑술</th>
+          {% else %}
+          <th scope="row">덧술 #{{ loop.index0 }}</th>
+          {% endif %}
+
             {% for i in item %}
-        {% for k,v in i.items() %}
-            <p>{{ k }}, {{ v }},</p>   
-          {% endfor %}      
-      {% endfor %}
-      {% endfor %}
+            
+              {% for k,v in i.items() %}
+                {% if v == 0 %}
+                <td></td>
+                {% else %}
+                <td>{{ v }}</td>
+                {% endif %}
+                  {% endfor %}      
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+      </table>
+      {% endif %}
     </div>
 
 <script>
