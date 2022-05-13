@@ -13,7 +13,7 @@ class Recipe(db.Model):
     rice = db.Column(db.String(100), unique=False, nullable=True)
     water = db.Column(db.String(100), unique=False, nullable=True)
     yeast = db.Column(db.String(100), unique=False, nullable=True)
-    flour = db.Column(db.String(100), unique=False, nullable=True)
+    # flour = db.Column(db.String(100), unique=False, nullable=True)
     submaterials = db.Column(db.String(100), unique=False, nullable=True)
     interval = db.Column(db.String(100), unique=False, nullable=True)
     stage = db.Column(db.String(100), unique=False, nullable=True)
@@ -30,9 +30,9 @@ def calc():
 
 @app.route('/brew')
 def brew():
-    staged_recipe = [[{'rice': '1'}, {'water': '5'}, {'yeast': '1'}, {'interval': '1'}], [{'rice': '4'}, {'interval': '4'}]]
+    # staged_recipe = [[{'rice': '1'}, {'water': '5'}, {'yeast': '1'}, {'interval': '1'}], [{'rice': '4'}, {'interval': '4'}]]
 
-    return render_template("brew.html", result=staged_recipe)
+    return render_template("brew.html", result=[''])
     # return render_template("brew.html")
 
 
