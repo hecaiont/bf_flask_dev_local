@@ -51,11 +51,11 @@ function calculateRW() {
 }
 
 
-
+// 전체 내용물 다 체크해서 없으면 경고창으로 변경해야함.
 function checkForm(){
   var rice = document.getElementById("rice"); 
 
-  if(rice.value == ""){
+  if (rice.value == ""){
     alert("값을 입력해 주세요.");
     return false;
   }
