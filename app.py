@@ -28,20 +28,20 @@ app = Flask(__name__)
 def calc():
     return render_template("calc.html")
 
-# @app.route('/brew')
-# def brew():
-#     # staged_recipe = [[{'rice': '1'}, {'water': '5'}, {'yeast': '1'}, {'interval': '1'}], [{'rice': '4'}, {'interval': '4'}]]
-
-#     return render_template("brew.html", result=[''])
-#     # return render_template("brew.html")
-
-
-
-
-
-# @app.route('/result', methods = ['POST'])
-@app.route('/brew', methods = ['POST', 'GET'])
+@app.route('/brew')
 def brew():
+    # staged_recipe = [[{'rice': '1'}, {'water': '5'}, {'yeast': '1'}, {'interval': '1'}], [{'rice': '4'}, {'interval': '4'}]]
+
+    return render_template("brew.html", result=[''])
+    # return render_template("brew.html")
+
+
+
+
+
+@app.route('/result', methods = ['POST'])
+# @app.route('/brew', methods = ['POST', 'GET'])
+def result():
     if request.method == 'POST':
         data = request.form
 
@@ -81,10 +81,10 @@ def brew():
         if len(total_stage) > 12:
             print('too many stage!!!')
 
-        return redirect(url_for('brew', result=staged_recipe))
-        # return render_template("brew.html", result=staged_recipe)
+        # return redirect(url_for('brew', result=staged_recipe))
+        return render_template("result.html", result=staged_recipe)
     else:
-        return render_template("brew.html", result=[''])
+        return render_template("result.html", result=[''])
 
 
 

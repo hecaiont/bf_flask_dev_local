@@ -8,8 +8,7 @@
       <small><span class="glyphicon glyphicon-minus gs"></span>를 눌러 작업을 제거</small></div>
     <div class="panel-body">
     
-    <!-- <form id="ingredient_filed" action = "http://localhost:5000/result" method = "POST" onsubmit="return checkForm()"> -->
-      <form id="ingredient_filed" action = "http://localhost:5000/brew" method = "POST" onsubmit="return checkForm()">
+    <form id="ingredient_filed" action = "http://localhost:5000/result" method = "POST" onsubmit="return checkForm()">
       <!-- <button type="submit" class="btn btn-default" onclick="calculateRW()">계산</button><p class="text-center" id="expected">계산을 눌러주세요</p> -->
       <button type="submit" class="btn btn-default">계산</button>
       <p class="text-center" id="expected">계산을 눌러주세요</p>
@@ -28,60 +27,6 @@
 
       
     </div>
-
-    <div>
-      {% if result != [''] %}
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">쌀</th>
-              <th scope="col">물</th>
-              <th scope="col">누룩</th>
-              <!-- <th scope="col">밀가루</th> -->
-              <th scope="col">부재료</th>
-              <th scope="col">기간</th>
-            </tr>
-          </thead>
-          <tbody>
-        {% for item in result %}
-        <tr>
-          {% if loop.index0 == 0 %}
-          <th scope="row">밑술</th>
-          {% else %}
-          <th scope="row">덧술 #{{ loop.index0 }}</th>
-          {% endif %}
-
-            {% for i in item %}
-            
-              {% for k,v in i.items() %}
-                {% if v == 0 %}
-                <td class="col-sm-2"></td>
-                {% else %}
-                <td class="col-sm-2">{{ v }}</td>
-                {% endif %}
-              {% endfor %}      
-            {% endfor %}
-          </tr>
-        {% endfor %}
-        <thead>
-          <tr>
-            <th scope="col">합계</th>
-            <th scope="col">{{ t_rice }}</th>
-            <th scope="col">{{ t_water }}</th>
-            <th scope="col">{{ t_yeast }}</th>
-            <!-- <th scope="col">{{ t_flour }}</th> -->
-            <th scope="col">{{ t_submaterials }}</th>
-            <th scope="col">{{ t_interval }}</th>
-          </tr>
-        </thead>
-      </tbody>
-      </table>
-      {% endif %}
-    </div>
-
-
-
     
 
 <script type="text/javascript" src="/static/js/brew.js"></script>

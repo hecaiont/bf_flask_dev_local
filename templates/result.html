@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div>
+      {% if result != [''] %}
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">쌀</th>
+              <th scope="col">물</th>
+              <th scope="col">누룩</th>
+              <th scope="col">부재료</th>
+              <th scope="col">기간</th>
+            </tr>
+          </thead>
+          <tbody>
+        {% for item in result %}
+        <tr>
+          {% if loop.index0 == 0 %}
+          <th scope="row">밑술</th>
+          {% else %}
+          <th scope="row">덧술 #{{ loop.index0 }}</th>
+          {% endif %}
+
+            {% for i in item %}
+            
+              {% for k,v in i.items() %}
+                {% if v == 0 %}
+                <td class="col-sm-2"></td>
+                {% else %}
+                <td class="col-sm-2">{{ v }}</td>
+                {% endif %}
+              {% endfor %}      
+            {% endfor %}
+          </tr>
+        {% endfor %}
+        <thead>
+          <tr>
+            <th scope="col">합계</th>
+            <th scope="col">{{ t_rice }}</th>
+            <th scope="col">{{ t_water }}</th>
+            <th scope="col">{{ t_yeast }}</th>
+            <th scope="col">{{ t_submaterials }}</th>
+            <th scope="col">{{ t_interval }}</th>
+          </tr>
+        </thead>
+      </tbody>
+      </table>
+      {% endif %}
+    </div>
+
+<!-- <script type="text/javascript" src="/static/js/brew.js"></script> -->
+
+{% endblock %}
