@@ -2,14 +2,16 @@
 
 {% block content %}
 <div class="container">
-<div class="panel panel-default">
-    <div class="panel-heading">쌀과 물의 양을 계산하고 결과물의 양을 계산</div>
-    <div class="panel-heading"><small><span class="glyphicon glyphicon-plus gs"></span>를 눌러 작업을 추가, </small>
-      <small><span class="glyphicon glyphicon-minus gs"></span>를 눌러 작업을 제거</small></div>
-    <div class="panel-body">
+  <div class="col-sm-12">
+
+
+<div class="card border-0">
+<!-- <div class="card-header">
+      <h3 class="card-title">카드 타이틀</h3>
+    </div> -->
+    <div class="card-body">
     
     <form id="ingredient_filed" action = "http://localhost:5000/result" method = "POST" onsubmit="return checkForm()">
-      <!-- <button type="submit" class="btn btn-default" onclick="calculateRW()">계산</button><p class="text-center" id="expected">계산을 눌러주세요</p> -->
       <button type="submit" class="btn btn-default">계산</button>
       <p class="text-center" id="expected">계산을 눌러주세요</p>
     </form>
@@ -19,12 +21,8 @@
         </div>
       </div>
 
-    <!-- <div class="panel-footer">
-      <button class="btn btn-default" onclick="calculateRW()">계산</button><p class="text-center" id="expected">계산을 눌러주세요</p>
-    </div> -->
-
     </div>
-
+  </div>
       
     </div>
     

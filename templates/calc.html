@@ -3,17 +3,17 @@
 {% block content %}
 <div class="container">
     <div class="col-sm-12">
-        <div class="card">
-                <div class="card-header">
-                        <h3 class="card-title">유용한 계산기</h3>
-                      </div>
+        <div class="card border-0">
+                <!-- <div class="card-header">
+                        <h3 class="card-title">카드 타이틀</h3>
+                      </div> -->
             <div class="card-body">
 
                     <div class="accordion" id="accordion">
                             <div class="card">
                               <div class="card-header">
                                 <h4 class="card-title">
-                                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                                  <a class="link-danger" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
                                     1. 술에 물을 넣어서 알콜 도수를 낮출 때</a>
                                 </h4>
                               </div>
@@ -23,28 +23,26 @@
                             <div class="row">        
                                     <div class="col-lg-4">
                                         <label>현재 도수(% ABV) : </label>
-                                        <div class="form-control border-0 border-0">
+                                        <div class="form-control border-0">
                                             <input id="id_1_1" type="number" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <label>원하는 도수(% ABV) : </label>
-                                        <div class="form-control border-0  border-0">
+                                        <div class="form-control border-0">
                                         <input id="id_1_2" type="number" class="form-control">
                                     </div>
                                     </div>
                                     <div class="col-lg-4">
                                         <label>술의 양(L) : </label>
-                                        <div class="form-control border-0  border-0">
+                                        <div class="form-control border-0">
                                         <input id="id_1_3" type="number" class="form-control">
                                     </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="flexbox btn-block">
-                                        <button class="btn btn-secondary btn-lg btn-block" onclick=fun_1()>계산</button>
-                                    </div>
+                                    <div class="col-lg-6 mx-auto my-auto">
+                                            <button class="btn btn-secondary btn-lg btn-block" onclick=fun_1()>계산</button>
                                 </div>
                                     <div class="col-lg-6">
                                             <div class="card-borderless">
@@ -97,10 +95,8 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                        <div class="col-lg-12">
-                                        <div class="flexbox btn-block">
+                                        <div class="col-lg-12 mx-auto my-auto">
                                             <button class="btn btn-secondary btn-lg btn-block" onclick=fun_2()>계산</button>
-                                    </div>
                                 </div>
                                     </div>
                                 <div class="row">
@@ -162,10 +158,9 @@
                                     </div>
                                 </div>
                                     <div class="row">
-                                        <div class="col-lg-6" >
-                                            <div class="flexbox btn-block">
+                                        <div class="col-lg-6 mx-auto my-auto">
                                             <button class="btn btn-secondary btn-lg btn-block" onclick=fun_3()>계산</button>
-                                        </div></div>
+                                        </div>
                                         <div class="col-lg-6" >
                                         <div class="card-borderless">    
                                         <div class="card-body">
@@ -208,10 +203,8 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-6" >
-                                                <div class="flexbox btn-block">
+                                            <div class="col-lg-6 mx-auto my-auto">
                                                 <button class="btn btn-secondary btn-lg btn-block" onclick=fun_4()>계산</button>
-                                            </div>
                                         </div>
                                             <div class="col-lg-6" >
                                                 <div class="card-borderless">
@@ -292,10 +285,9 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-12" >
-                                                <div class="flexbox btn-block">
+                                            <div class="col-lg-12 mx-auto my-auto">
                                                 <button class="btn btn-secondary btn-lg btn-block" onclick=fun_5()>계산</button>
-                                            </div></div>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-6">
@@ -357,10 +349,9 @@
                                       </div>
                                   </div>
                                       <div class="row">
-                                          <div class="col-lg-6" >
-                                              <div class="flexbox btn-block">
+                                          <div class="col-lg-6 mx-auto my-auto">
                                               <button class="btn btn-secondary btn-lg btn-block" onclick=fun_6()>계산</button>
-                                          </div></div>
+                                          </div>
                                           <div class="col-lg-6" >
                                           <div class="card-borderless">    
                                           <div class="card-body">
