@@ -39,11 +39,36 @@
         <thead>
           <tr>
             <th scope="col">합계</th>
-            <th scope="col">{{ t_rice }}</th>
-            <th scope="col">{{ t_water }}</th>
-            <th scope="col">{{ t_yeast }}</th>
-            <th scope="col">{{ t_submaterials }}</th>
-            <th scope="col">{{ t_interval }}</th>
+            
+            {% if total_rice == 0 %}
+            <th scope="col"></th>
+            {% else %}
+            <th scope="col">{{ total_rice }}</th>
+            {% endif %}
+
+            {% if total_water == 0 %}
+            <th scope="col"></th>
+            {% else %}
+            <th scope="col">{{ total_water }}</th>
+            {% endif %}
+
+            {% if total_yeast == 0 %}
+            <th scope="col"></th>
+            {% else %}
+            <th scope="col">{{ total_yeast }}</th>
+            {% endif %}
+
+            {% if total_submaterials == 0 %}
+            <th scope="col"></th>
+            {% else %}
+            <th scope="col">{{ total_submaterials }}</th>
+            {% endif %}
+
+            {% if total_interval == 0 %}
+            <th scope="col"></th>
+            {% else %}
+            <th scope="col">{{ total_interval }}</th>
+            {% endif %}
           </tr>
         </thead>
       </tbody>

@@ -51,6 +51,13 @@ def result():
         total_stage = []
         staged_recipe = []
         current_stage = []
+        
+        trice = 0
+        twater = 0
+        tyeast = 0
+        tsubmaterials = 0
+        tinterval = 0
+
         for key, value in data.items():            
             if value != '':
                 materials, stage = key.split('#')
@@ -65,6 +72,17 @@ def result():
                     total_stage.append(current_stage_level)
                     current_stage = []
 
+                if materials == 'rice':
+                    trice+=int(value)
+                elif materials == 'water':
+                    twater+=int(value)
+                elif materials == 'yeast':
+                    tyeast+=int(value)
+                elif materials == 'submaterials':
+                    tsubmaterials+=int(value)
+                elif materials == 'interval':
+                    tinterval+=int(value)
+
                 current_stage.append({materials:value})
             else:
                 value = 0
@@ -72,6 +90,11 @@ def result():
                 current_stage.append({materials:value})                                     
 
         staged_recipe.append(current_stage)
+        # staged_recipe.append({'total_rice':trice})
+        # staged_recipe.append({'total_water':twater})
+        # staged_recipe.append({'total_yeast':tyeast})
+        # staged_recipe.append({'total_submaterials':tsubmaterials})
+        # staged_recipe.append({'total_interval':tinterval})
 
 
         print(staged_recipe)
@@ -82,7 +105,13 @@ def result():
             print('too many stage!!!')
 
         # return redirect(url_for('brew', result=staged_recipe))
-        return render_template("result.html", result=staged_recipe)
+        return render_template("result.html", result=staged_recipe, 
+        total_rice = trice,
+        total_water = twater,
+        total_yeast = tyeast,
+        total_submaterials = tsubmaterials,
+        total_interval = tinterval,
+        )
     else:
         return render_template("result.html", result=[''])
 
