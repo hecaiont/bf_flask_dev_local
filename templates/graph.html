@@ -3,12 +3,24 @@
     <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
   </head>
+  <py-env>
+    - matplotlib
+  </py-env>
   <py-script src="/static/py/graph.py"></py-script>
 
+<py-script>
+import matplotlib.pyplot as plt
 
-<!-- 
-<div class="container">
-    <p>{{ total_rice }}</p>
-    </div> -->
+labels = 'tot rice', 'tot water'
+sizes = [{{ total_rice }}, {{ total_water }}]
+<!-- explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs') -->
+
+fig1, ax1 = plt.subplots()
+ax1.pie(sizes, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+ax1.axis('equal') 
+
+fig1
+</py-script>
 
 {% endblock %}
