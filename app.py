@@ -1,6 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, jsonify, render_template, request, redirect, url_for
 
 from flask_sqlalchemy import SQLAlchemy
+
+from utils.zodiac import Zodiac
+
+from time import localtime, time
 
 
 db = SQLAlchemy()
@@ -13,34 +17,43 @@ class Recipe(db.Model):
     rice = db.Column(db.String(100), unique=False, nullable=True)
     water = db.Column(db.String(100), unique=False, nullable=True)
     yeast = db.Column(db.String(100), unique=False, nullable=True)
-    # flour = db.Column(db.String(100), unique=False, nullable=True)
     submaterials = db.Column(db.String(100), unique=False, nullable=True)
     interval = db.Column(db.String(100), unique=False, nullable=True)
     stage = db.Column(db.String(100), unique=False, nullable=True)
 
 
 
-
 app = Flask(__name__)
+
 
 
 @app.route('/')
 def calc():
-    return render_template("calc.html")
+    return render_template("calc.html", )
 
 @app.route('/brew')
 def brew():
-    # staged_recipe = [[{'rice': '1'}, {'water': '5'}, {'yeast': '1'}, {'interval': '1'}], [{'rice': '4'}, {'interval': '4'}]]
+    return render_template("brew.html", result=[''], )
 
-    return render_template("brew.html", result=[''])
-    # return render_template("brew.html")
 
+
+# # for ajax zodiac clock; base.html
+# @app.route('/update', methods=['POST'])
+# def update():
+#     tm = localtime(time())
+#     tz = Zodiac(tm.tm_year, tm.tm_mon, tm.tm_mday).display_k()
+#     return jsonify({'time': tz})
+
+@app.route('/zodiac')
+def zodiac():
+    tm = localtime(time())
+    tz = Zodiac(tm.tm_year, tm.tm_mon, tm.tm_mday).display_k() 
+    return render_template("zodiac.html", zodiac=tz)
 
 
 
 
 @app.route('/result', methods = ['POST'])
-# @app.route('/brew', methods = ['POST', 'GET'])
 def result():
     if request.method == 'POST':
         data = request.form
@@ -78,7 +91,7 @@ def result():
                     twater+=int(value)
                 elif materials == 'yeast':
                     tyeast+=int(value)
-                elif materials == 'submaterials':
+                elif materials == 'subMaterials':
                     tsubmaterials+=int(value)
                 elif materials == 'interval':
                     tinterval+=int(value)
@@ -90,21 +103,12 @@ def result():
                 current_stage.append({materials:value})                                     
 
         staged_recipe.append(current_stage)
-        # staged_recipe.append({'total_rice':trice})
-        # staged_recipe.append({'total_water':twater})
-        # staged_recipe.append({'total_yeast':tyeast})
-        # staged_recipe.append({'total_submaterials':tsubmaterials})
-        # staged_recipe.append({'total_interval':tinterval})
-
 
         print(staged_recipe)
-
-        # print(total_stage)
 
         if len(total_stage) > 12:
             print('too many stage!!!')
 
-        # return redirect(url_for('brew', result=staged_recipe))
         return render_template("result.html", result=staged_recipe, 
         total_rice = trice,
         total_water = twater,
@@ -113,8 +117,7 @@ def result():
         total_interval = tinterval,
         )
     else:
-        return render_template("result.html", result=[''])
-
+        return render_template("result.html", result=[''], )
 
 
 if __name__ == '__main__':

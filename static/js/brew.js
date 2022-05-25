@@ -14,15 +14,16 @@ function ingredient_filed() {
 
 function remove_ingredient_filed(rid) {
   $('.removeclass'+rid).remove();
+  check_room_number()
 }
 
 var btn = document.getElementById("plusrowbtn");
 
 function check_room_number() {
-    if(room > 20) {
-        btn.style.display = "none";
+    if(document.getElementsByClassName("nav justify-content-center m-1").length > 15) {
+        $('#plusrowbtn').prop('disabled', true);
     } else {
-        btn.style.display = "block";
+        $('#plusrowbtn').prop('disabled', false);
     } 
 }
 

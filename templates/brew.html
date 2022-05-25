@@ -9,16 +9,15 @@
 <!-- <div class="card-header">
       <h3 class="card-title">카드 타이틀</h3>
     </div> -->
-    <div class="card-body">
-    
-    <form id="ingredient_filed" action = "http://localhost:5000/result" method = "POST" onsubmit="return checkForm()">
-      <button type="submit" class="btn btn-default">계산</button>
-      <p class="text-center" id="expected">계산을 눌러주세요</p>
-    </form>
+    <div class="card-body" id="brew_body">
+          <p class="text-center" id="expected">추가를 눌러 레시피를 만들고, 완성을 눌러주세요</p>
 
+    <form id="ingredient_filed" action = "http://localhost:5000/result" method = "POST" onsubmit="return checkForm()">
         <div class="btn-group btn-block">
-          <button id="plusrowbtn" class="btn btn-success btn-block" type="button"  onclick="ingredient_filed();">작업추가</button>
+          <button id="plusrowbtn" class="btn btn-success btn-block" type="button"  onclick="ingredient_filed();">추가</button>
+          <button type="submit" class="btn btn-default">완성</button>
         </div>
+      </form>
       </div>
 
     </div>
