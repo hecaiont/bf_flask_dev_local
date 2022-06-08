@@ -1,30 +1,15 @@
 from flask import Flask, jsonify, render_template, request, redirect, url_for
 
-from flask_sqlalchemy import SQLAlchemy
-
 from utils.zodiac import Zodiac
 
 from time import localtime, time
 
+from models import db
 
-db = SQLAlchemy()
-
-
-class Recipe(db.Model):
-    __tablename__ = "recipe"
-
-    id = db.Column(db.Integer, primary_key=True)
-    rice = db.Column(db.String(100), unique=False, nullable=True)
-    water = db.Column(db.String(100), unique=False, nullable=True)
-    yeast = db.Column(db.String(100), unique=False, nullable=True)
-    submaterials = db.Column(db.String(100), unique=False, nullable=True)
-    interval = db.Column(db.String(100), unique=False, nullable=True)
-    stage = db.Column(db.String(100), unique=False, nullable=True)
-
+import os
 
 
 app = Flask(__name__)
-
 
 
 @app.route('/')
@@ -118,6 +103,27 @@ def result():
         )
     else:
         return render_template("result.html", result=[''], )
+
+
+
+
+
+
+
+basdir = os.path.abspath(os.path.dirname(__file__))
+dbfile = os.path.join(basdir, 'db.sqlite')
+
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + dbfile
+app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SECRET_KEY'] = 'testrandomstringforcho'
+
+db.init_app(app)
+db.app = app
+db.create_all()
+
+
 
 
 if __name__ == '__main__':

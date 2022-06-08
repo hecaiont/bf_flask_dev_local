@@ -1,0 +1,22 @@
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Recipe;
+
+CREATE TABLE User (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE NOT NULL,
+  password TEXT NOT NULL
+);
+
+CREATE TABLE Recipe (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  author_id INTEGER,
+  rice TEXT,
+  water TEXT,
+  yeast TEXT,
+  submaterials TEXT,
+  interval TEXT,
+  stage TEXT,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  title TEXT,
+  FOREIGN KEY (author_id) REFERENCES User (id)
+);
