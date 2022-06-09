@@ -5,6 +5,7 @@ from utils.zodiac import Zodiac
 from time import localtime, time
 
 from models import db
+from models import Recipe
 
 import os
 
@@ -106,6 +107,15 @@ def result():
 
 
 
+    
+    
+def commit_recipe():
+    recipe = Recipe(rice='1', water='1', yeast='1', interval='1', stage='1', brewer=1)
+    db.session.add(recipe)
+    db.session.commit()
+    recipe_all = Recipe.query.all()
+    print(recipe_all)
+
 
 
 
@@ -127,4 +137,5 @@ db.create_all()
 
 
 if __name__ == '__main__':
+    commit_recipe()
     app.run(debug=True)
