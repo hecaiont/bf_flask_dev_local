@@ -13,6 +13,17 @@ import os
 app = Flask(__name__)
 
 
+
+def commit_recipe(rice, water, yeast, submaterials, interval, stage, brewer):
+    recipe = Recipe(rice=rice, water=water, yeast=yeast, submaterials=submaterials,  interval=interval, stage=stage, brewer=brewer)
+    db.session.add(recipe)
+    db.session.commit()
+    # recipe_all = Recipe.query.all()
+    # print(recipe_all)
+
+
+
+
 @app.route('/')
 def calc():
     return render_template("calc.html", )
@@ -95,6 +106,8 @@ def result():
         if len(total_stage) > 12:
             print('too many stage!!!')
 
+        
+
         return render_template("result.html", result=staged_recipe, 
         total_rice = trice,
         total_water = twater,
@@ -109,13 +122,6 @@ def result():
 
     
     
-def commit_recipe():
-    recipe = Recipe(rice='1', water='1', yeast='1', interval='1', stage='1', brewer=1)
-    db.session.add(recipe)
-    db.session.commit()
-    recipe_all = Recipe.query.all()
-    print(recipe_all)
-
 
 
 
@@ -137,5 +143,4 @@ db.create_all()
 
 
 if __name__ == '__main__':
-    commit_recipe()
     app.run(debug=True)
